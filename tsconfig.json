@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-adibro-ecommerce-grid": [
+        "dist/ngx-adibro-ecommerce-grid"
+      ],
+      "ngx-adibro-ecommerce-grid/*": [
+        "dist/ngx-adibro-ecommerce-grid/*"
+      ]
+    }
   }
 }

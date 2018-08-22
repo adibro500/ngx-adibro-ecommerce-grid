@@ -1,27 +1,109 @@
-# NgxAdibroProductTable
+# ngx-adibro-ecommerce-grid for Angular 5+
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
+This is an angular component for flipkart like grid.
 
-## Development server
+# For demos please visit 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[demos](http://ambiguous-bean.surge.sh/)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
+```
+npm install --save ngx-adibro-ecommerce-grid
+```
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Inside app.module file import the module:
 
-## Running unit tests
+```
+import { NgxAdibroEcommerceGridModule } from 'ngx-adibro-ecommerce-grid';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  declarations: [
+   ...
+  ],
+  imports: [
+    ...,
+    NgxAdibroEcommerceGridModule,
+    ...
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+### In your HTML file you can do:
 
-## Further help
+```
+<ngx-adibro-ecommerce-grid [items]="items" (addToCart)="addToCartItem($event)" (viewMore)="viewMoreItem($event)"></ngx-adibro-ecommerce-grid>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+### You can then access the value of the grid items in your component like so:
+
+```
+addToCartItem(event: any) {
+    console.log(event);
+  }
+
+  viewMoreItem(event: any) {
+    console.log(event);
+  }
+```
+
+## The items input is an array of Items each having following properties:
+
+```
+1. id : any 
+2. image_url : string
+3. desc : desciption of product 
+4. title: label of the product
+5. price: the price of the product
+
+example items array:
+
+ this.items = [{
+      id: 1,
+      price: 20.5,
+      image_url: 'https://images.apple.com/euro/macbook/a/screens/specs/images/finish_silver_large.jpg',
+      title: 'xyz',
+      desc: 'abc'
+    }, {
+      id: 2,
+      price: 24.5,
+      title: 'xyz',
+      image_url: 'https://images.apple.com/euro/macbook/a/screens/specs/images/finish_silver_large.jpg',
+      desc: 'abc'
+    }, {
+      id: 3,
+      price: 29.5,
+      title: 'xyz',
+      image_url: 'https://images.apple.com/euro/macbook/a/screens/specs/images/finish_silver_large.jpg',
+      desc: 'abcd'
+    }, {
+      id: 4,
+      price: 22.5,
+      title: 'xyz',
+      image_url: 'https://images.apple.com/euro/macbook/a/screens/specs/images/finish_silver_large.jpg',
+      desc: 'asdf'
+    },  {
+      id: 5,
+      price: 25.5,
+      title: 'abc',
+      image_url: 'https://images.apple.com/euro/macbook/a/screens/specs/images/finish_silver_large.jpg',
+      desc: 'xyz'
+    },  {
+      id: 6,
+      price: 30.5,
+      title: 'kio',
+      image_url: 'https://images.apple.com/euro/macbook/a/screens/specs/images/finish_silver_large.jpg',
+      desc: 'lop'
+    }], 
+
+
+```
+## That's it
+
+Have fun !!!
