@@ -38,7 +38,7 @@ export class AppModule { }
 ### In your HTML file you can do:
 
 ```
-<ngx-adibro-ecommerce-grid [items]="items" (addToCart)="addToCartItem($event)" (viewMore)="viewMoreItem($event)"></ngx-adibro-ecommerce-grid>
+<ngx-adibro-ecommerce-grid [items]="items" (addToCart)="addToCartItem($event)" (viewMore)="viewMoreItem($event)" currencyUnicode = '&#165;' addToCartLabel = 'Add to cart' viewMoreLabel = 'View more'></ngx-adibro-ecommerce-grid>
 
 ```
 ### You can then access the value of the grid items in your component like so:

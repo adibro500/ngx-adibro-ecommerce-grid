@@ -16,13 +16,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 						<div class="product-grid__img-wrapper">
 							<img [src]="item.image_url" alt="Img" class="product-grid__img" />
 						</div>
-						<span class="product-grid__title">{{item.title}}</span>
-						<span class="product-grid__price">{{item.price}} &#8377;</span>
+            <span class="product-grid__title">{{item.title}}</span>
+            <span class="product-grid__price">{{currencyUnicode}} {{item.price}}</span>
 						<div class="product-grid__extend-wrapper">
 							<div class="product-grid__extend">
 								<p class="product-grid__description">{{item.desc}}</p>
-								<span (click)="addToCartEvent(item)" class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i> Add to cart</span>
-	<span (click)="viewMoreEvent(item)" class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i> View more</span>
+	<span (click)="addToCartEvent(item)" class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i> {{addToCartLabel}}</span>
+	<span (click)="viewMoreEvent(item)" class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i> {{viewMoreLabel}} </span>
 							</div>
 						</div>
 					</div>
@@ -42,7 +42,12 @@ export class NgxAdibroEcommerceGridComponent implements OnInit {
   addToCart = new EventEmitter();
   @Output()
   viewMore = new EventEmitter();
-
+  @Input()
+  currencyUnicode: any;
+  @Input()
+  addToCartLabel = 'Add to cart';
+  @Input()
+  viewMoreLabel = 'View more';
 
 
   addToCartEvent(item) {
